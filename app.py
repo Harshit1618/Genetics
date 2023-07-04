@@ -11,7 +11,7 @@ def one():
     return "one"
 @app.route("/zero")
 def zero():
-    return  "
+    return  "zero"
 
 @app.route("/results/<int:n>")
 def hi(n):
