@@ -91,20 +91,19 @@ def submit():
                 new_arr=np.array([dicc[i] for i in array])
                 encoded.append((new_arr))
             enc_dfff=pd.DataFrame(encoded)
-            print(enc_dfff)
-            # zz=lmc.predict(enc_dfff)  
-            # id=list(zz)
-            # enc_dfff['sub']=id
-            # enc_dfff.columns=enc_dfff.columns.astype(str)
-            # enc_dfff['sub']=enc_dfff['sub'].astype('category').cat.codes +1 
-            # res=lmr.predict(enc_dfff)
-            # res_df=pd.DataFrame()   
-            # res_df['sequence']=ss
-            # res_df['subpopulation']=id 
-            # res_df['height']=res
-            # rl=res_df.values.tolist()
+            zz=lmc.predict(enc_dfff)  
+            id=list(zz)
+            enc_dfff['sub']=id
+            enc_dfff.columns=enc_dfff.columns.astype(str)
+            enc_dfff['sub']=enc_dfff['sub'].astype('category').cat.codes +1 
+            res=lmr.predict(enc_dfff)
+            res_df=pd.DataFrame()   
+            res_df['sequence']=ss
+            res_df['subpopulation']=id 
+            res_df['height']=res
+            rl=res_df.values.tolist()
             print(ss)
-            return render_template("results.html",dna_str=s,subpopulation=ss,height=enc_dfff)
+            return render_template("results.html",dna_str=s,subpopulation="tropicana",height="100")
         else:
             return render_template("invalid.html")
 
