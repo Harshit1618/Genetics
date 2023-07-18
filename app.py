@@ -82,28 +82,29 @@ def submit():
         if(s.endswith('.')):
             s=s[:-1]
         if(len(s)==9  and ''.join(sorted(list(set(list(s))))) in 'ACGT'):
-            ss=s
-            nuc=['A','T','C','G']
-            dicc={'A':1.5,'T':2.5,'C':0.5,'G':0.75}
-            encoded=[]
-            for i in ss:
-                array = np.array(list(i))
-                new_arr=np.array([dicc[i] for i in array])
-                encoded.append((new_arr))
-            enc_dfff=pd.DataFrame(encoded)
-            print(enc_dfff)
-            zz=lmc.predict(enc_dfff)  
-            id=list(zz)
-            enc_dfff['sub']=id
-            enc_dfff.columns=enc_dfff.columns.astype(str)
-            enc_dfff['sub']=enc_dfff['sub'].astype('category').cat.codes +1 
-            res=lmr.predict(enc_dfff)
-            res_df=pd.DataFrame()   
-            res_df['sequence']=ss
-            res_df['subpopulation']=id 
-            res_df['height']=res
-            rl=res_df.values.tolist()
-            return render_template("results.html",dna_str=s,subpopulation=zz,height=rl)
+            # ss=s
+            # nuc=['A','T','C','G']
+            # dicc={'A':1.5,'T':2.5,'C':0.5,'G':0.75}
+            # encoded=[]
+            # for i in ss:
+            #     array = np.array(list(i))
+            #     new_arr=np.array([dicc[i] for i in array])
+            #     encoded.append((new_arr))
+            # enc_dfff=pd.DataFrame(encoded)
+            # print(enc_dfff)
+            # zz=lmc.predict(enc_dfff)  
+            # id=list(zz)
+            # enc_dfff['sub']=id
+            # enc_dfff.columns=enc_dfff.columns.astype(str)
+            # enc_dfff['sub']=enc_dfff['sub'].astype('category').cat.codes +1 
+            # res=lmr.predict(enc_dfff)
+            # res_df=pd.DataFrame()   
+            # res_df['sequence']=ss
+            # res_df['subpopulation']=id 
+            # res_df['height']=res
+            # rl=res_df.values.tolist()
+            print(ss)
+            return render_template("results.html",dna_str=s,subpopulation=ss,height=ss)
         else:
             return render_template("invalid.html")
 
