@@ -9,10 +9,8 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd
 import numpy as np
-from flask import jsonify,send_file
-import pickle
-import json
-from joblib import dump,load
+
+
 df=pd.read_csv("ddata.csv") 
 df=df.drop(columns=['Unnamed: 0'])
 x=df.iloc[:,:-2]
@@ -58,6 +56,7 @@ bg_model.fit(X_train,Y_train)
  
 lmc=model_r
 lmr=bg_model
+
 
 
 
