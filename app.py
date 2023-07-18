@@ -104,8 +104,7 @@ def submit():
             res_df['subpopulation']=id 
             res_df['height']=res
             rl=res_df.values.tolist()
-            print(ss)
-            return render_template("results.html",dna_str=s,subpopulation="tropicana",height="100")
+            return render_template("results.html",dna_str=s,subpopulation=zz,height=rl)
         else:
             return render_template("invalid.html")
 
