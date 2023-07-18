@@ -62,7 +62,6 @@ lmr=bg_model
 
 
 from flask import Flask,redirect,url_for,render_template,request
-import classification
 app=Flask(__name__)
 
 @app.route("/")
