@@ -24,6 +24,7 @@ model_r=RandomForestClassifier(n_estimators=7,max_depth=9,random_state=42,criter
 model_r.fit(x_train,y_train)
 s_pred=model_r.predict(x) 
 r_pred=model_r.predict(x_test)
+print(x_test)
 print(accuracy_score(y_test,r_pred))
 s_pred=list(s_pred)
 df_h=pd.DataFrame(df.iloc[:,:-2]) 
@@ -91,6 +92,7 @@ def submit():
                 new_arr=np.array([dicc[i] for i in array])
                 encoded.append((new_arr))
             enc_dfff=pd.DataFrame(encoded)
+            print(enc_dfff)
             zz=lmc.predict(enc_dfff)  
             id=list(zz)
             enc_dfff['sub']=id
