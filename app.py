@@ -92,7 +92,7 @@ def submit():
                 new_arr=np.array([dicc[i] for i in array])
                 encoded.append((new_arr))
             enc_dfff=pd.DataFrame(encoded)
-            enc_dfff.transform()
+            enc_dfff=enc_dfff.transpose()
             zz=lmc.predict(enc_dfff)  
             id=list(zz)
             enc_dfff['sub']=id
